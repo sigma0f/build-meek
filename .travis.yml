@@ -1,0 +1,16 @@
+sudo: false
+language: go
+install:
+  - go get -u git.torproject.org/pluggable-transports/meek.git/meek-client
+script:
+  - ls -l $GOPATH/bin
+  - cp $GOPATH/bin/meek-client $TRAVIS_BUILD_DIR
+deploy:
+  provider: releases
+  api_key:
+    secure: 
+  file: meek-client
+  skip_cleanup: true
+  on:
+    tags: true
+    
