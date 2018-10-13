@@ -7,7 +7,8 @@ script:
   - cp $GOPATH/bin/meek-client $TRAVIS_BUILD_DIR
 deploy:
   provider: releases
-  api_key: iZl5CpG76JQyA
+  api_key:
+     secure: iZl5CpG76JQyA
   file: meek-client
   skip_cleanup: true
   on:
