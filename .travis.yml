@@ -8,7 +8,7 @@ script:
 deploy:
   provider: releases
   api_key:
-    secure: 4149b9da284e9452201acf739ad117dc1c94dd0f
+    secure: iZl5CpG76JQyA
   file: meek-client
   skip_cleanup: true
   on:
