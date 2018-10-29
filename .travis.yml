@@ -1,16 +1,20 @@
 sudo: false
 language: go
 install:
-  - go get -u git.torproject.org/pluggable-transports/meek.git/meek-client
+- go get -u git.torproject.org/pluggable-transports/meek.git/meek-client
+- go get -u git.torproject.org/pluggable-transports/obfs4.git/obfs4proxy
 script:
-  - ls -l $GOPATH/bin
-  - cp $GOPATH/bin/meek-client $TRAVIS_BUILD_DIR
+- ls -l $GOPATH/bin
+- cp $GOPATH/bin/meek-client $TRAVIS_BUILD_DIR
+- cp $GOPATH/bin/obfs4proxy $TRAVIS_BUILD_DIR
 deploy:
   provider: releases
   api_key:
-     secure: iZl5CpG76JQyA
-  file: meek-client
+    secure: hAjlGicz/t5fZkiCYywo5jKTxCGqq3HpWuwzfs98N+pqBlrukqenB6tU1Sv+jKGrh8A4fyaxLs2LBwjZKVqLdnRPGygzRRt3Xog3QIEZpXJ8jEjOe7LwbjWSLH4yet17NaAKDY0f3JMqs8mtI5B0a3JLh34sRCqUpv5/ZaObPoqYRWVNTq4s/v3HiYk5ANqFh3xKiFya5xf8+Q+fEKiZVsgJshXUkJLav2jF6txsj/NwOCHjVWlQyZnT3wlskFXkd4zKEh0qrkpDK28urngb/+mQLWebFxrcH9nhER6pjLQSl5RPX8SYey1VTcqX1ssXkK9IXsbKoQ5D8SBUxIgBVWDxFmHHgAGcEPmJsLz2ggBAVcTDK563d3MFsRxQGFGtLuMbaL/fNcIWfAw+p7/0Oa7Fywn88lw9jOju55VjMU1t9XtA99gPyKk7RTZ8KHpthzUlWTjnhLi8EhxADnNuznGayVoKuOEGiLicFNfyskuE4Js1Ab6Hv3KrR63fmS3NOKLNn3OpMEnUqibj81GGDOgCwhliT2ao5Jv2yMxzAMjX3BB8VQ14PnEsJycvSuiyUd9sQg8KbgGf+Q2aj/yub0/2iDl2kIcV78QyRMJb3RSZ7/DMYna73QDqX5ONPpVheRBJprNDUiPz9k/1kPt4yD6ZVLmhT0iYkHWSjyxKPL0=
+  file:
+  - meek-client
+  - obfs4proxy
   skip_cleanup: true
   on:
     tags: true
-    
+    repo: sigma0f/build-pt
